@@ -7,4 +7,6 @@ This is the Source Code for Myra Store
 ### 🧰 Source
 To clone from source code, run:
 ```
-git clone 
+git clone https://github.com/MyraPlatform/store.git
+```
+
