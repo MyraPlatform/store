@@ -1,0 +1,16 @@
+[
+  {
+    "name": "My Cool Game",
+    "author": "Developer123",
+    "description": "My first cool game!!!",
+    "icon": "apps/my-cool-game/icon.png",
+    "url": "apps/my-cool-game/"
+  },
+  {
+    "name": "Another Game",
+    "author": "IndieDev",
+    "description": "An awesome puzzle game.",
+    "icon": "apps/another-game/icon.png",
+    "url": "apps/another-game/"
+  }
+]
