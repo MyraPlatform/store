@@ -1,16 +1,9 @@
 [
   {
-    "name": "My Cool Game",
-    "author": "Developer123",
-    "description": "My first cool game!!!",
-    "icon": "apps/my-cool-game/icon.png",
-    "url": "apps/my-cool-game/"
-  },
-  {
-    "name": "Another Game",
-    "author": "IndieDev",
-    "description": "An awesome puzzle game.",
-    "icon": "apps/another-game/icon.png",
-    "url": "apps/another-game/"
+    "name": "SuperTuxKart",
+    "author": "SuperTuxKart Team (ported by The Myra Project)",
+    "description": "SuperTuxKart is a Karting game featuring Tux and other open source projects' mascots.",
+    "icon": "apps/stk/icon.png",
+    "url": "apps/stk/"
   }
 ]
