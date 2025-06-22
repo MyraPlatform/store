@@ -3,7 +3,7 @@
     "name": "SuperTuxKart",
     "author": "SuperTuxKart Team (ported by The Myra Project)",
     "description": "SuperTuxKart is a Karting game featuring Tux and other open source projects' mascots.",
-    "icon": "apps/stk/icon.png",
-    "url": "apps/stk/"
+    "icon": "apps/5/icon.png",
+    "url": "apps/5/"
   }
 ]
