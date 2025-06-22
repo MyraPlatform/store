@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Luanti (formerly Minetest) - available on the Myra platform." />
+  <title>Luanti | Myra Platform</title>
+  <style>
+    :root {
+      --bg-color: #1e1e1e;
+      --panel-color: #2b2b2b;
+      --accent-color: #4cbb17;
+      --hover-color: #64dd17;
+      --text-color: #e0e0e0;
+      --secondary-text: #a0a0a0;
+      --border-radius: 8px;
+      --font-family: 'Segoe UI', 'Ubuntu', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      line-height: 1.6;
+    }
+
+    header, nav, footer {
+      background-color: var(--panel-color);
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 2px solid var(--accent-color);
+    }
+
+    nav a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    nav img {
+      width: 32px;
+      height: 32px;
+      vertical-align: middle;
+      margin-right: 8px;
+    }
+
+    h1, h2, h3 {
+      color: var(--accent-color);
+      margin-top: 0;
+    }
+
+    a {
+      color: var(--hover-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    .section-home {
+      background-image: url("/apps/6/background-home.webp");
+      background-size: cover;
+      background-position: center;
+      background-color: #212121;
+      color: #ffffff;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .section-home h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-home i {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    section#download {
+      background-color: var(--panel-color);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    code {
+      display: inline-block;
+      background: #111;
+      padding: 0.75rem 1rem;
+      color: var(--accent-color);
+      font-family: monospace;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      font-size: 0.9rem;
+      color: var(--secondary-text);
+      border-top: 1px solid #333;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="/apps/6" id="logo">
+      <img src="icon.png" alt="Luanti logo">
+      Luanti
+    </a>
+  </nav>
+
+  <section id="home" class="section-home">
+    <h1>Luanti</h1>
+    <i>(formerly Minetest)</i>
+    <p>An unofficial port of Luanti to the Myra game platform.</p>
+  </section>
+
+  <section id="download">
+    <h2>Get Luanti</h2>
+    <p>You can download Luanti directly in the Myra Launcher or install it via terminal:</p>
+    <code>myra install luanti</code>
+  </section>
+
+  <footer>
+    &copy; 2025 The Myra Project.
+  </footer>
+</body>
+</html>
