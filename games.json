@@ -5,5 +5,12 @@
     "description": "SuperTuxKart is a Karting game featuring Tux and other open source projects' mascots.",
     "icon": "apps/5/icon.png",
     "url": "apps/5/"
+  },
+  {
+    "name": "Luanti",
+    "author": "Luanti Team (ported by The Myra Project)",
+    "description": "Luanti is a voxel-based engine and Game Platform.",
+    "icon": "apps/6/icon.png",
+    "url": "apps/6/"
   }
 ]
