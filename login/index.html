@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>☁️ Myra Cloud</title>
+  <style>
+    body { font-family: sans-serif; padding: 2em; text-align: center; }
+    input, button { margin: 0.5em; padding: 0.5em; width: 200px; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <h1>☁️ Myra Cloud</h1>
+  <h2 id="formTitle">Login</h2>
+
+  <form id="authForm">
+    <input type="text" id="username" placeholder="Username" required><br>
+    <input type="email" id="email" placeholder="Email" class="register-only hidden"><br>
+    <input type="password" id="password" placeholder="Password" required><br>
+    <button type="submit" id="submitBtn">Login</button>
+  </form>
+
+  <p id="status"></p>
+
+  <a href="?register=1" id="toggleLink">Don't have an account? Register</a>
+
+  <script>
+    const isRegister = window.location.search.includes("register=1");
+    const formTitle = document.getElementById("formTitle");
+    const submitBtn = document.getElementById("submitBtn");
+    const toggleLink = document.getElementById("toggleLink");
+    const emailField = document.querySelector(".register-only");
+    const statusMsg = document.getElementById("status");
+
+    if (isRegister) {
+      formTitle.innerText = "Register";
+      submitBtn.innerText = "Register";
+      toggleLink.href = "?";
+      toggleLink.innerText = "Already have an account? Login";
+      emailField.classList.remove("hidden");
+    }
+
+    document.getElementById("authForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const email = document.getElementById("email")?.value.trim();
+
+      const hash = await sha256(password);
+
+      if (isRegister) {
+        const res = await fetch("https://api.leon8326.org/register-user", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ username, password, email })
+        });
+        const data = await res.json();
+        statusMsg.innerText = res.ok ? "✅ Registered!" : "❌ " + data.error;
+      } else {
+        const url = `https://api.leon8326.org/content?user=${username}&file=password.hash`;
+        const res = await fetch(url);
+        if (!res.ok) {
+          statusMsg.innerText = "❌ User not found";
+          return;
+        }
+        const storedHash = (await res.text()).trim();
+        if (hash === storedHash) {
+          // ✅ Login successful
+          const cookieValue = `MYRACLOUD-${username}.txt-${hash}`;
+          document.cookie = `myracloud=${cookieValue}; path=/; SameSite=Lax`;
+          statusMsg.innerText = "✅ Login successful! Redirecting...";
+          setTimeout(() => window.location.href = "/", 1000);
+        } else {
+          statusMsg.innerText = "❌ Incorrect password";
+        }
+      }
+    });
+
+    async function sha256(text) {
+      const encoder = new TextEncoder();
+      const data = encoder.encode(text);
+      const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+      return Array.from(new Uint8Array(hashBuffer))
+        .map(b => b.toString(16).padStart(2, "0"))
+        .join("");
+    }
+  </script>
+
+</body>
+</html>
